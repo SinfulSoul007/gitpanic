@@ -1,0 +1,204 @@
+{
+  "name": "gitpanic",
+  "displayName": "Git Panic",
+  "description": "Big friendly buttons for common Git disasters - make Git recovery intuitive, safe, and educational",
+  "version": "0.1.0",
+  "publisher": "gitpanic",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "SCM Providers",
+    "Other"
+  ],
+  "keywords": [
+    "git",
+    "recovery",
+    "undo",
+    "reset",
+    "reflog"
+  ],
+  "activationEvents": [
+    "workspaceContains:.git"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "gitpanic.openPanicMenu",
+        "title": "Git Panic: Open Panic Menu",
+        "icon": "$(warning)"
+      },
+      {
+        "command": "gitpanic.undoLastCommit",
+        "title": "Git Panic: Undo Last Commit"
+      },
+      {
+        "command": "gitpanic.fixCommitMessage",
+        "title": "Git Panic: Fix Last Commit Message"
+      },
+      {
+        "command": "gitpanic.addToLastCommit",
+        "title": "Git Panic: Add Files to Last Commit"
+      },
+      {
+        "command": "gitpanic.moveCommits",
+        "title": "Git Panic: Move Commits to New Branch"
+      },
+      {
+        "command": "gitpanic.recoverBranch",
+        "title": "Git Panic: Recover Deleted Branch"
+      },
+      {
+        "command": "gitpanic.undoLastAction",
+        "title": "Git Panic: Undo Last GitPanic Action"
+      },
+      {
+        "command": "gitpanic.fixDetachedHead",
+        "title": "Git Panic: Fix Detached HEAD State"
+      },
+      {
+        "command": "gitpanic.abortOperation",
+        "title": "Git Panic: Abort Merge/Rebase/Cherry-pick"
+      },
+      {
+        "command": "gitpanic.openStash",
+        "title": "Git Panic: Stash Operations"
+      },
+      {
+        "command": "gitpanic.recoverFile",
+        "title": "Git Panic: Recover File from History"
+      },
+      {
+        "command": "gitpanic.unstageFiles",
+        "title": "Git Panic: Unstage Files"
+      },
+      {
+        "command": "gitpanic.squashCommits",
+        "title": "Git Panic: Squash Commits"
+      },
+      {
+        "command": "gitpanic.discardChanges",
+        "title": "Git Panic: Discard Local Changes"
+      },
+      {
+        "command": "gitpanic.forcePushRecovery",
+        "title": "Git Panic: Recover from Force Push"
+      },
+      {
+        "command": "gitpanic.cleanUntracked",
+        "title": "Git Panic: Clean Untracked Files"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "gitpanic.openPanicMenu",
+          "when": "gitOpenRepositoryCount != 0"
+        },
+        {
+          "command": "gitpanic.undoLastCommit",
+          "when": "gitOpenRepositoryCount != 0"
+        },
+        {
+          "command": "gitpanic.fixCommitMessage",
+          "when": "gitOpenRepositoryCount != 0"
+        },
+        {
+          "command": "gitpanic.addToLastCommit",
+          "when": "gitOpenRepositoryCount != 0"
+        },
+        {
+          "command": "gitpanic.moveCommits",
+          "when": "gitOpenRepositoryCount != 0"
+        },
+        {
+          "command": "gitpanic.recoverBranch",
+          "when": "gitOpenRepositoryCount != 0"
+        },
+        {
+          "command": "gitpanic.undoLastAction",
+          "when": "gitOpenRepositoryCount != 0"
+        },
+        {
+          "command": "gitpanic.fixDetachedHead",
+          "when": "gitOpenRepositoryCount != 0"
+        },
+        {
+          "command": "gitpanic.abortOperation",
+          "when": "gitOpenRepositoryCount != 0"
+        },
+        {
+          "command": "gitpanic.openStash",
+          "when": "gitOpenRepositoryCount != 0"
+        },
+        {
+          "command": "gitpanic.recoverFile",
+          "when": "gitOpenRepositoryCount != 0"
+        },
+        {
+          "command": "gitpanic.unstageFiles",
+          "when": "gitOpenRepositoryCount != 0"
+        },
+        {
+          "command": "gitpanic.squashCommits",
+          "when": "gitOpenRepositoryCount != 0"
+        },
+        {
+          "command": "gitpanic.discardChanges",
+          "when": "gitOpenRepositoryCount != 0"
+        },
+        {
+          "command": "gitpanic.forcePushRecovery",
+          "when": "gitOpenRepositoryCount != 0"
+        },
+        {
+          "command": "gitpanic.cleanUntracked",
+          "when": "gitOpenRepositoryCount != 0"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Git Panic",
+      "properties": {
+        "gitpanic.showStatusBarButton": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show Git Panic button in status bar"
+        },
+        "gitpanic.confirmDangerousActions": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show confirmation dialogs for potentially destructive actions"
+        },
+        "gitpanic.maxActionHistory": {
+          "type": "number",
+          "default": 50,
+          "description": "Maximum number of actions to keep in history for undo"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "eslint": "^8.54.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.2",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "simple-git": "^3.21.0"
+  }
+}
