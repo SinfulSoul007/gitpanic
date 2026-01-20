@@ -2,9 +2,13 @@
 .vscode-test/**
 src/**
 out/**
+test/**
 node_modules/**
 .gitignore
+.git/**
 tsconfig.json
 webpack.config.js
 **/*.map
 **/*.ts
+package-lock.json
+*.vsix

@@ -2,9 +2,9 @@
 
 **Big friendly buttons for common Git disasters.**
 
-[![VS Code Marketplace](https://img.shields.io/badge/VS%20Code-Marketplace-blue.svg)](https://marketplace.visualstudio.com/items?itemName=gitpanic.gitpanic)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Version](https://img.shields.io/badge/version-0.1.0-green.svg)](https://github.com/SinfulSoul007/gitpanic)
+[![CLI](https://img.shields.io/npm/v/gitpanic-cli.svg?label=CLI)](https://www.npmjs.com/package/gitpanic-cli)
 
 ---
 
@@ -86,9 +86,15 @@ Git Panic provides **16 recovery operations** organized into intuitive categorie
 
 ### Manual Installation
 
-1. Download the `.vsix` file from [GitHub Releases](https://github.com/SinfulSoul007/gitpanic/releases)
+1. Clone the repo and build:
+   ```bash
+   git clone https://github.com/SinfulSoul007/gitpanic.git
+   cd gitpanic
+   npm install
+   npx vsce package
+   ```
 2. In VS Code, press `Ctrl+Shift+P` and type "Install from VSIX"
-3. Select the downloaded file
+3. Select the generated `.vsix` file
 
 ### CLI Version
 

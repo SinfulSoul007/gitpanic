@@ -3,7 +3,20 @@
   "displayName": "Git Panic",
   "description": "Big friendly buttons for common Git disasters - make Git recovery intuitive, safe, and educational",
   "version": "0.1.0",
-  "publisher": "gitpanic",
+  "publisher": "SinfulSoul",
+  "icon": "media/icon.png",
+  "galleryBanner": {
+    "color": "#1e1e1e",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SinfulSoul007/gitpanic"
+  },
+  "bugs": {
+    "url": "https://github.com/SinfulSoul007/gitpanic/issues"
+  },
+  "homepage": "https://github.com/SinfulSoul007/gitpanic#readme",
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -16,7 +29,10 @@
     "recovery",
     "undo",
     "reset",
-    "reflog"
+    "reflog",
+    "panic",
+    "restore",
+    "branch"
   ],
   "activationEvents": [
     "workspaceContains:.git"
@@ -192,6 +208,7 @@
     "@types/vscode": "^1.85.0",
     "@typescript-eslint/eslint-plugin": "^6.13.0",
     "@typescript-eslint/parser": "^6.13.0",
+    "canvas": "^3.2.1",
     "eslint": "^8.54.0",
     "ts-loader": "^9.5.1",
     "typescript": "^5.3.2",
